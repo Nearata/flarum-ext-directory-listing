@@ -45,7 +45,10 @@ export default class DirectoryTreeItem extends Component<Attrs> {
         <div class="icon">
           {this.external ? icon("fas fa-file") : icon("fas fa-folder")}
         </div>
-        <div class="fileName">{this.data.filename}</div>
+        <div class="fileName">
+          {this.data.filename}
+          {"extension" in this.data && "." + this.data.extension}
+        </div>
         <div class="size">
           {this.data.size ? prettyBytes(this.data.size) : "-"}
         </div>

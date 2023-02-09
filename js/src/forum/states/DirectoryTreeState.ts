@@ -8,6 +8,7 @@ export type Data = {
   basename: string;
   filename: string;
   size: number | undefined;
+  extension: string | undefined;
 };
 
 export default class DirectoryTreeState {
