@@ -1,4 +1,5 @@
 import DirectoryTreeState from "../states/DirectoryTreeState";
+import DirectoryTreeBackItem from "./DirectoryTreeBackItem";
 import DirectoryTreeItem from "./DirectoryTreeItem";
 import Component from "flarum/common/Component";
 import LoadingIndicator from "flarum/common/components/LoadingIndicator";
@@ -29,6 +30,7 @@ export default class DirectoryTree extends Component<Attrs> {
 
     return (
       <div class="DirectoryTreeList">
+        <DirectoryTreeBackItem />
         {this.directoryState.getData().map(function (val) {
           return <DirectoryTreeItem data={val} />;
         })}
