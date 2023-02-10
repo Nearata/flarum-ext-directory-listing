@@ -1,3 +1,4 @@
+import DirectoryListingResolver from "./DirectoryListingResolver";
 import DirectoryListingPage from "./components/DirectoryListingPage";
 import LinkButton from "flarum/common/components/LinkButton";
 import { extend } from "flarum/common/extend";
@@ -8,6 +9,7 @@ app.initializers.add("nearata-directory-listing", () => {
   app.routes.nearataDirectoryListing = {
     path: "/directoryListing",
     component: DirectoryListingPage,
+    resolverClass: DirectoryListingResolver,
   };
 
   extend(IndexPage.prototype, "navItems", function (items) {

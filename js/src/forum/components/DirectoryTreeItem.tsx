@@ -47,7 +47,7 @@ export default class DirectoryTreeItem extends Component<Attrs> {
         </div>
         <div class="fileName">
           {this.data.filename}
-          {"extension" in this.data && "." + this.data.extension}
+          {this.data.extension && "." + this.data.extension}
         </div>
         <div class="size">
           {this.data.size ? prettyBytes(this.data.size) : "-"}

@@ -25,7 +25,7 @@ export default class DirectoryTreeState {
   }
 
   loadData() {
-    let { path } = m.route.param();
+    let path = m.route.param("path");
 
     if (!path) {
       path = "";
