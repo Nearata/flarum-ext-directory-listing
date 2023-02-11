@@ -20,7 +20,9 @@ export default class DirectoryTreeBreadcrumb extends Component {
     return (
       <div class="DirectoryTreeBreadcrumb">
         <Link class="item" href={app.route("nearataDirectoryListing")}>
-          Home
+          {app.translator.trans(
+            "nearata-directory-listing.forum.breadcrumb_home_label"
+          )}
         </Link>
         {path &&
           path.split("/").map((val, index, array) => {

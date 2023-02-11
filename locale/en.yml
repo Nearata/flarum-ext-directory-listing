@@ -2,3 +2,4 @@ nearata-directory-listing:
   forum:
     page_title: Directory Listing
     placeholder_empty_folder_text: This folder is empty.
+    breadcrumb_home_label: Home
