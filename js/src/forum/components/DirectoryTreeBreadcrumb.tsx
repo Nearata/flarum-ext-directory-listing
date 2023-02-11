@@ -10,6 +10,17 @@ export default class DirectoryTreeBreadcrumb extends Component {
 
   oncreate(vnode: Mithril.VnodeDOM<this>): void {
     super.oncreate(vnode);
+
+    const elems = this.element.querySelectorAll(".item");
+
+    for (let i = 0; i < elems.length - 1; i++) {
+      const separator = document.createElement("div");
+
+      separator.classList.add("separator");
+      separator.innerHTML = "/";
+
+      elems[i].after(separator);
+    }
   }
 
   view() {
