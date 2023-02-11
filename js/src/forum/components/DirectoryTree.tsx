@@ -32,7 +32,7 @@ export default class DirectoryTree extends Component<Attrs> {
     );
 
     return (
-      <div class="DirectoryTreeList">
+      <div class="DirectoryTree">
         <DirectoryTreeBreadcrumb />
         <DirectoryTreeBackItem />
         {this.directoryState.isLoading() && <LoadingIndicator />}
@@ -40,9 +40,11 @@ export default class DirectoryTree extends Component<Attrs> {
           (!this.directoryState.getData().length && (
             <Placeholder text={placeholderText} />
           ))}
-        {this.directoryState.getData().map(function (val) {
-          return <DirectoryTreeItem data={val} />;
-        })}
+        <div class="DirectoryTreeList">
+          {this.directoryState.getData().map(function (val) {
+            return <DirectoryTreeItem data={val} />;
+          })}
+        </div>
       </div>
     );
   }
