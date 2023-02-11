@@ -27,10 +27,6 @@ export default class DirectoryTree extends Component<Attrs> {
   }
 
   view() {
-    if (this.directoryState.isLoading()) {
-      return <LoadingIndicator />;
-    }
-
     const placeholderText = app.translator.trans(
       "nearata-directory-listing.forum.placeholder_empty_folder_text"
     );
@@ -39,9 +35,11 @@ export default class DirectoryTree extends Component<Attrs> {
       <div class="DirectoryTreeList">
         <DirectoryTreeBreadcrumb />
         <DirectoryTreeBackItem />
-        {!this.directoryState.getData().length && (
-          <Placeholder text={placeholderText} />
-        )}
+        {this.directoryState.isLoading() && <LoadingIndicator />}
+        {this.directoryState.isLoading() ||
+          (!this.directoryState.getData().length && (
+            <Placeholder text={placeholderText} />
+          ))}
         {this.directoryState.getData().map(function (val) {
           return <DirectoryTreeItem data={val} />;
         })}
