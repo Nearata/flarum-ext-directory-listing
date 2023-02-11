@@ -34,4 +34,21 @@
     gap: .5rem;
     grid-auto-columns: max-content;
   }
+
+  .DirectoryTreeBreadcrumb,
+  .DirectoryTreeBackItem,
+  .DirectoryTreeItem {
+    padding: .25rem 1rem;
+  }
+
+  .DirectoryTreeBackItem,
+  .DirectoryTreeItem {
+    text-decoration: none;
+    transition: all ease .2s;
+    border-radius: var(--border-radius);
+
+    &:hover {
+      background: var(--discussion-list-item-bg-hover);
+    }
+  }
 }

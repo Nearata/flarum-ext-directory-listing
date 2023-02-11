@@ -24,7 +24,7 @@ export default class DirectoryTreeBreadcrumb extends Component {
   }
 
   view() {
-    const path: string = m.route.param("path");
+    const path: string | undefined = m.route.param("path");
 
     let currentPath = "";
 
