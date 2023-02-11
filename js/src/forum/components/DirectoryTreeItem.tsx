@@ -1,8 +1,8 @@
 import { Data } from "../states/DirectoryTreeState";
 import Component from "flarum/common/Component";
 import Link from "flarum/common/components/Link";
+import humanTime from "flarum/common/helpers/humanTime";
 import icon from "flarum/common/helpers/icon";
-import humanTime from "flarum/common/utils/humanTime";
 import app from "flarum/forum/app";
 import type Mithril from "mithril";
 import prettyBytes from "pretty-bytes";
