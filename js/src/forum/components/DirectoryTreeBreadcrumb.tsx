@@ -37,10 +37,10 @@ export default class DirectoryTreeBreadcrumb extends Component {
         </Link>
         {path &&
           path.split("/").map((val, index, array) => {
-            currentPath += `${val}`;
-
-            if (index !== array.length - 1) {
-              currentPath += "/";
+            if (index > 0) {
+              currentPath += `/${val}`;
+            } else {
+              currentPath += val;
             }
 
             return (
