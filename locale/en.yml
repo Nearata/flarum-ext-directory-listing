@@ -3,3 +3,4 @@ nearata-directory-listing:
     page_title: Directory Listing
     placeholder_empty_folder_text: This folder is empty.
     breadcrumb_home_label: Home
+    refresh_action_button_label: Refresh
