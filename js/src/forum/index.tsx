@@ -1,5 +1,5 @@
-import DirectoryListingResolver from "./DirectoryListingResolver";
 import DirectoryListingPage from "./components/DirectoryListingPage";
+import DirectoryListingResolver from "./resolvers/DirectoryListingResolver";
 import LinkButton from "flarum/common/components/LinkButton";
 import { extend } from "flarum/common/extend";
 import app from "flarum/forum/app";
