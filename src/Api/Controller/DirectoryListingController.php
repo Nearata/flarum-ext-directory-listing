@@ -29,8 +29,14 @@ class DirectoryListingController implements RequestHandlerInterface
             throw new BadRequestException;
         }
 
+        $files = collect($this->filesystem->listContents(Util::normalizePath($path)));
+
+        $sort = $files->sortBy(function ($v, $k) {
+            return $v;
+        });
+
         return new JsonResponse([
-            'data' => $this->filesystem->listContents(Util::normalizePath($path))
+            'data' => $sort->values()->all()
         ]);
     }
 }
