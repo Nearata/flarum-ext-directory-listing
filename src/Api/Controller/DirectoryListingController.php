@@ -4,12 +4,12 @@ namespace Nearata\DirectoryListing\Api\Controller;
 
 use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Illuminate\Support\Arr;
+use Laminas\Diactoros\Response\EmptyResponse;
 use Laminas\Diactoros\Response\JsonResponse;
 use League\Flysystem\Util;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class DirectoryListingController implements RequestHandlerInterface
 {
@@ -26,7 +26,7 @@ class DirectoryListingController implements RequestHandlerInterface
         $path = (string) Arr::get($request->getParsedBody(), 'path');
 
         if (is_null($path)) {
-            throw new BadRequestException;
+            return new EmptyResponse(400);
         }
 
         $files = collect($this->filesystem->listContents(Util::normalizePath($path)));

@@ -14,7 +14,6 @@ type Attrs = {
 export default class DirectoryTreeItem extends Component<Attrs> {
   data!: Data;
   external!: boolean;
-  externalHref!: any;
 
   oninit(vnode: Mithril.Vnode<this>): void {
     super.oninit(vnode);
@@ -22,9 +21,6 @@ export default class DirectoryTreeItem extends Component<Attrs> {
     this.data = this.attrs.data;
 
     this.external = this.data.type !== "dir";
-    this.externalHref =
-      this.external &&
-      location.origin + "/assets/nearataDirectoryListing/" + this.data.path;
   }
 
   oncreate(vnode: Mithril.VnodeDOM<this>): void {
@@ -38,9 +34,12 @@ export default class DirectoryTreeItem extends Component<Attrs> {
         external={this.external}
         href={
           this.external
-            ? this.externalHref
+            ? `${app.forum.attribute(
+                "apiUrl"
+              )}/nearata/directoryListing/download?path=${this.data.path}`
             : app.route("nearataDirectoryListing", { path: this.data.path })
         }
+        {...(this.external && { target: "_blank" })}
       >
         <div class="icon">
           {this.external ? icon("fas fa-file") : icon("fas fa-folder")}

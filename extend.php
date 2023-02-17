@@ -4,6 +4,7 @@ namespace Nearata\DirectoryListing;
 
 use Flarum\Extend;
 use Nearata\DirectoryListing\Api\Controller\DirectoryListingController;
+use Nearata\DirectoryListing\Api\Controller\DownloadController;
 use Nearata\DirectoryListing\Filesystem\DirectoryListingDisk;
 use Nearata\DirectoryListing\Frontend\Route\DirectoryListingRoute;
 use Nearata\DirectoryListing\ServiceProvider\CreateDiskServiceProvider;
@@ -28,4 +29,8 @@ return [
 
     (new Extend\Routes('api'))
         ->post('/nearata/directoryListing', 'nearata-directory-listing.index', DirectoryListingController::class)
+        ->get('/nearata/directoryListing/download', 'nearata-directory-listing.download', DownloadController::class),
+
+    (new Extend\Settings)
+        ->default('nearata-directory-listing.proxyDownload', false)
 ];

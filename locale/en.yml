@@ -1,4 +1,10 @@
 nearata-directory-listing:
+  admin:
+    settings:
+      proxy_download:
+        label: Proxy Downloads
+      folder_suffix:
+        label: Folder Suffix
   forum:
     page_title: Directory Listing
     placeholder_empty_folder_text: This folder is empty.
