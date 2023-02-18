@@ -1,6 +1,6 @@
 {
     "name": "nearata/flarum-ext-directory-listing",
-    "description": "no desc",
+    "description": "Exposes the contents of a folder.",
     "keywords": [
         "flarum"
     ],
