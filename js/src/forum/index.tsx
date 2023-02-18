@@ -13,6 +13,10 @@ app.initializers.add("nearata-directory-listing", () => {
   };
 
   extend(IndexPage.prototype, "navItems", function (items) {
+    if (!app.forum.attribute("canNearataDirectoryListingView")) {
+      return;
+    }
+
     items.add(
       "nearataDirectoryListing",
       <LinkButton

@@ -2,9 +2,11 @@
 
 namespace Nearata\DirectoryListing;
 
+use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Extend;
 use Nearata\DirectoryListing\Api\Controller\DirectoryListingController;
 use Nearata\DirectoryListing\Api\Controller\DownloadController;
+use Nearata\DirectoryListing\Api\Serializer\ForumAttributes;
 use Nearata\DirectoryListing\Filesystem\DirectoryListingDisk;
 use Nearata\DirectoryListing\Frontend\Route\DirectoryListingRoute;
 use Nearata\DirectoryListing\ServiceProvider\CreateDiskServiceProvider;
@@ -32,5 +34,8 @@ return [
         ->get('/nearata/directoryListing/download', 'nearata-directory-listing.download', DownloadController::class),
 
     (new Extend\Settings)
-        ->default('nearata-directory-listing.proxy_download', false)
+        ->default('nearata-directory-listing.proxy_download', false),
+
+    (new Extend\ApiSerializer(ForumSerializer::class))
+        ->attributes(ForumAttributes::class)
 ];

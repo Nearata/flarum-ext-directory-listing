@@ -2,6 +2,7 @@
 
 namespace Nearata\DirectoryListing\Api\Controller;
 
+use Flarum\Http\RequestUtil;
 use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Illuminate\Support\Arr;
 use Laminas\Diactoros\Response\EmptyResponse;
@@ -27,6 +28,12 @@ class DirectoryListingController implements RequestHandlerInterface
 
         if (is_null($path)) {
             return new EmptyResponse(400);
+        }
+
+        $actor = RequestUtil::getActor($request);
+
+        if ($actor->cannot('nearata-directory-listing.view-directory-content')) {
+            return new EmptyResponse(403);
         }
 
         $files = collect($this->filesystem->listContents(Util::normalizePath($path)));

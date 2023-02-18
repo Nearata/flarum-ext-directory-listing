@@ -7,6 +7,7 @@ nearata-directory-listing:
         label: Folder Suffix
     permissions:
       download_files_label: Download Files
+      view_directory_content_label: View Directory Content
   forum:
     page_title: Directory Listing
     placeholder_empty_folder_text: This folder is empty.

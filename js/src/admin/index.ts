@@ -27,5 +27,16 @@ app.initializers.add("nearata-directory-listing", () => {
         allowGuest: true,
       },
       "view"
+    )
+    .registerPermission(
+      {
+        icon: "fas fa-eye",
+        label: app.translator.trans(
+          "nearata-directory-listing.admin.permissions.view_directory_content_label"
+        ),
+        permission: "nearata-directory-listing.view-directory-content",
+        allowGuest: true,
+      },
+      "view"
     );
 });
