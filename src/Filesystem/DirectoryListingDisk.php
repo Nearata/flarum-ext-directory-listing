@@ -17,7 +17,7 @@ class DirectoryListingDisk
 
     public function __invoke(Paths $paths, UrlGenerator $url)
     {
-        $suffix = $this->settings->get('nearata-directory-listing.folderSuffix');
+        $suffix = $this->settings->get('nearata-directory-listing.folder_suffix');
 
         return [
             'root' => "$paths->public/assets/nearataDirectoryListing-$suffix",

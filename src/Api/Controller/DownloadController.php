@@ -2,6 +2,7 @@
 
 namespace Nearata\DirectoryListing\Api\Controller;
 
+use Flarum\Http\RequestUtil;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Illuminate\Support\Arr;
@@ -30,8 +31,14 @@ class DownloadController implements RequestHandlerInterface
     {
         $path = (string) Arr::get($request->getQueryParams(), 'path');
 
-        if (!$this->settings->get('nearata-directory-listing.proxyDownload')) {
+        if (!$this->settings->get('nearata-directory-listing.proxy_download')) {
             return new RedirectResponse($this->filesystem->url($path));
+        }
+
+        $actor = RequestUtil::getActor($request);
+
+        if ($actor->cannot('nearata-directory-listing.download-files')) {
+            return new EmptyResponse(403);
         }
 
         if (is_null($path) || empty($path)) {

@@ -32,5 +32,5 @@ return [
         ->get('/nearata/directoryListing/download', 'nearata-directory-listing.download', DownloadController::class),
 
     (new Extend\Settings)
-        ->default('nearata-directory-listing.proxyDownload', false)
+        ->default('nearata-directory-listing.proxy_download', false)
 ];

@@ -12,11 +12,11 @@ class CreateDiskServiceProvider extends AbstractServiceProvider
         /** @var \Flarum\Settings\SettingsRepositoryInterface */
         $settings = $this->container->make('flarum.settings');
 
-        $suffix = $settings->get('nearata-directory-listing.folderSuffix');
+        $suffix = $settings->get('nearata-directory-listing.folder_suffix');
 
         if (is_null($suffix) || empty($suffix)) {
             $suffix = Str::random(20);
-            $settings->set('nearata-directory-listing.folderSuffix', $suffix);
+            $settings->set('nearata-directory-listing.folder_suffix', $suffix);
         }
 
         /** @var \Illuminate\Filesystem\Filesystem */

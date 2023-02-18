@@ -5,6 +5,8 @@ nearata-directory-listing:
         label: Proxy Downloads
       folder_suffix:
         label: Folder Suffix
+    permissions:
+      download_files_label: Download Files
   forum:
     page_title: Directory Listing
     placeholder_empty_folder_text: This folder is empty.
