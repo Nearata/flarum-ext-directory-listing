@@ -30,16 +30,16 @@ class DownloadController implements RequestHandlerInterface
     {
         $path = (string) Arr::get($request->getQueryParams(), 'path');
 
+        if (!$this->settings->get('nearata-directory-listing.proxyDownload')) {
+            return new RedirectResponse($this->filesystem->url($path));
+        }
+
         if (is_null($path) || empty($path)) {
             return new EmptyResponse(400);
         }
 
         if (!$this->filesystem->exists($path)) {
             return new EmptyResponse(404);
-        }
-
-        if (!$this->settings->get('nearata-directory-listing.proxyDownload')) {
-            return new RedirectResponse($this->filesystem->url($path));
         }
 
         // this fixes download not starting for big files
