@@ -26,10 +26,9 @@
             "title": "Directory Listing",
             "category": "feature",
             "icon": {
-                "image": "icon.png",
-                "backgroundColor": "#fff",
-                "backgroundSize": "cover",
-                "backgroundPosition": "center"
+                "name": "fas fa-folder",
+                "backgroundColor": "#32746D",
+                "color": "#fff"
             }
         }
     }
