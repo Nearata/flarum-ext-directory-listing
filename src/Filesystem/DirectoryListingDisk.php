@@ -20,8 +20,8 @@ class DirectoryListingDisk
         $suffix = $this->settings->get('nearata-directory-listing.folder_suffix');
 
         return [
-            'root' => "$paths->public/assets/nearataDirectoryListing-$suffix",
-            'url'  => $url->to('forum')->path("assets/nearataDirectoryListing-$suffix")
+            'root' => "$paths->public/assets/nearataDirectoryListing$suffix",
+            'url'  => $url->to('forum')->path("assets/nearataDirectoryListing$suffix")
         ];
     }
 }
