@@ -12,7 +12,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class DirectoryListingController implements RequestHandlerInterface
+class ListingController implements RequestHandlerInterface
 {
     /** @var \Illuminate\Filesystem\FilesystemAdapter */
     protected $filesystem;
