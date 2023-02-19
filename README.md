@@ -2,6 +2,8 @@
 
 > Exposes the contents of a folder.
 
+![preview](screenshot.png)
+
 ## Info
 
 - The extension will create a new folder in `public/assets` with name `nearataDirectoryListing`.
